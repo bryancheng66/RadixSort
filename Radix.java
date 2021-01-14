@@ -21,26 +21,15 @@ public class Radix{
 		int digits = 0;
 		SortableLinkedList[] buckets = new SortableLinkedList[10];
 
-		for(int i = 0; i < data.size(); i++){
-			if(length(data.get(i)) > digits){
-				digits = length(data.get(i));
-			}
-
-			buckets[nth(data.get(i), 0)].add(data.get(i));
-		}
-
-		data = new SortableLinkedList();
-		merge(data, buckets);
-
-		for(int i = 1; i < digits; i++){
-			for(int j = 0; i < data.size(); i++){
-				if(length(data.get(j)) > digits){
-					digits = length(data.get(j));
+		for(int i = 0; i <= digits; i++){
+			while(data.size() > 0){
+				if(i = 0){
+					digits = currentLength > digits ? currentLength : digits;
 				}
-
-				buckets[nth(data.get(j), i)].add(data.get(j));
+				currentValue = data.remove(0);
+				buckets[nth(currentValue, i)].add(currentValue);
 			}
-			data = new SortableLinkedList();
+
 			merge(data, buckets);
 		}
 	}
