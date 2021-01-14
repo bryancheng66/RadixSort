@@ -4,6 +4,10 @@ public class Radix{
 	}
 
 	public static int length(int n){
-		return (int)Math.log10(n) + 1;
+		if (n == 0){
+			return 1;
+		} else {
+			return (int)Math.log10(n) + 1;
+		}
 	}
 }
